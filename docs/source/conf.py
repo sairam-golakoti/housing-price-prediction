@@ -16,14 +16,17 @@ import sys
 
 HERE = op.dirname(op.abspath(__file__))
 LIB_PKG_PATH = op.abspath(op.join(HERE, "..", "..", 'src'))
+PROD_PATH = op.abspath(op.join(HERE, "..", "..", "production"))
 sys.path.insert(0, LIB_PKG_PATH)
+sys.path.insert(0, PROD_PATH)
 # NOTE: This is needed for jupyter-sphinx to be able to build docs
 os.environ["PYTHONPATH"] = ":".join((LIB_PKG_PATH, os.environ.get("PYTHONPATH", "")))
+os.environ["PYTHONPATH"] = ":".join((PROD_PATH, os.environ.get("PYTHONPATH", "")))
 
 
 # -- Project information -----------------------------------------------------
 
-project = "Project_X"
+project = "Sales Price Prediction"
 copyright = "2023, Tiger Analytics"
 author = "Tiger Analytics"
 

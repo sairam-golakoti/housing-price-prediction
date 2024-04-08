@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKLStatsmodelOLS &mdash; Sales Price Prediction  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ta_lib.regression.api.SKLStatsmodelOLS.__init__" href="ta_lib.regression.api.SKLStatsmodelOLS.__init__.html" />
+    <link rel="prev" title="ta_lib.regression.api.RegressionReport.show_element_tree" href="ta_lib.regression.api.RegressionReport.show_element_tree.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Sales Price Prediction
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../project_overview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api/ta_lib.html">ta_lib</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ta_lib.regression.api.html">ta_lib.regression.api</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.mape.html">ta_lib.regression.api.mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.root_mean_squared_error.html">ta_lib.regression.api.root_mean_squared_error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.wmape.html">ta_lib.regression.api.wmape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.html">RegressionComparison</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.RegressionReport.html">RegressionReport</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SKLStatsmodelOLS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best_practices.html">Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Production scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sales Price Prediction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api_guide.html">API Documentation</a> &raquo;</li>
+          <li><a href="../api/ta_lib.html">ta_lib</a> &raquo;</li>
+          <li><a href="ta_lib.regression.api.html">ta_lib.regression.api</a> &raquo;</li>
+      <li>SKLStatsmodelOLS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/ta_lib.regression.api.SKLStatsmodelOLS.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="sklstatsmodelols">
+<h1>SKLStatsmodelOLS<a class="headerlink" href="#sklstatsmodelols" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ta_lib.regression.api.SKLStatsmodelOLS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ta_lib.regression.api.</span></span><span class="sig-name descname"><span class="pre">SKLStatsmodelOLS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ta_lib.regression.api.SKLStatsmodelOLS" title="Permalink to this definition"></a></dt>
+<dd><p>sklearn wrapper estimator for the statsmodels.api.OLS Estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fit_intercept</strong> (<em>bool</em>) – argument to specify whether to fit the intercept in the model</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ta_lib.regression.api.SKLStatsmodelOLS.coef_">
+<span class="sig-name descname"><span class="pre">coef_</span></span><a class="headerlink" href="#ta_lib.regression.api.SKLStatsmodelOLS.coef_" title="Permalink to this definition"></a></dt>
+<dd><p>Estimated coefficients for the linear regression problem.
+If multiple targets are passed during the fit (y 2D), this
+is a 2D array of shape (n_targets, n_features), while if only
+one target is passed, this is a 1D array of length n_features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array of shape (n_features, ) or (n_targets, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ta_lib.regression.api.SKLStatsmodelOLS.intercept_">
+<span class="sig-name descname"><span class="pre">intercept_</span></span><a class="headerlink" href="#ta_lib.regression.api.SKLStatsmodelOLS.intercept_" title="Permalink to this definition"></a></dt>
+<dd><p>Independent term in the linear model. Set to 0.0 if
+<cite>fit_intercept = False</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float or array of shape (n_targets,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<p>From the implementation point of view, this is just a wrapper class that uses the standards of SKLearn and model from statsmodels api.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ta_lib.regression.estimators</span> <span class="kn">import</span> <span class="n">SKLStatsmodelOLS</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># y = 1 * x_0 + 2 * x_1 + 3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span> <span class="o">=</span> <span class="n">SKLStatsmodelOLS</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span>
+<span class="go">array([1., 2.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span>
+<span class="go">3.0000...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]))</span>
+<span class="go">array([16.])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.__init__.html#ta_lib.regression.api.SKLStatsmodelOLS.__init__" title="ta_lib.regression.api.SKLStatsmodelOLS.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.__init__</span></code></a>([fit_intercept])</p></td>
+<td><p>Initialize Estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.coeff_table.html#ta_lib.regression.api.SKLStatsmodelOLS.coeff_table" title="ta_lib.regression.api.SKLStatsmodelOLS.coeff_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.coeff_table</span></code></a>([add_vif])</p></td>
+<td><p>Coefficient table of this model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.fit.html#ta_lib.regression.api.SKLStatsmodelOLS.fit" title="ta_lib.regression.api.SKLStatsmodelOLS.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.fit</span></code></a>(X, y[, column_names])</p></td>
+<td><p>Build a linear regression model from the training set (X, y).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.get_model_type.html#ta_lib.regression.api.SKLStatsmodelOLS.get_model_type" title="ta_lib.regression.api.SKLStatsmodelOLS.get_model_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.get_model_type</span></code></a>()</p></td>
+<td><p>Return the model type of the estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.get_params.html#ta_lib.regression.api.SKLStatsmodelOLS.get_params" title="ta_lib.regression.api.SKLStatsmodelOLS.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.get_params</span></code></a>([deep])</p></td>
+<td><p>Get the parameters of this estimator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.predict.html#ta_lib.regression.api.SKLStatsmodelOLS.predict" title="ta_lib.regression.api.SKLStatsmodelOLS.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.predict</span></code></a>(X)</p></td>
+<td><p>Predict regression target for X.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.score.html#ta_lib.regression.api.SKLStatsmodelOLS.score" title="ta_lib.regression.api.SKLStatsmodelOLS.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.score</span></code></a>(X, y[, sample_weight])</p></td>
+<td><p>Return the coefficient of determination of the prediction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.set_params.html#ta_lib.regression.api.SKLStatsmodelOLS.set_params" title="ta_lib.regression.api.SKLStatsmodelOLS.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.set_params</span></code></a>(**params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.summary.html#ta_lib.regression.api.SKLStatsmodelOLS.summary" title="ta_lib.regression.api.SKLStatsmodelOLS.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SKLStatsmodelOLS.summary</span></code></a>()</p></td>
+<td><p>Return the model summary similar to the statsmodels OLS Summary.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ta_lib.regression.api.RegressionReport.show_element_tree.html" class="btn btn-neutral float-left" title="ta_lib.regression.api.RegressionReport.show_element_tree" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ta_lib.regression.api.SKLStatsmodelOLS.__init__.html" class="btn btn-neutral float-right" title="ta_lib.regression.api.SKLStatsmodelOLS.__init__" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tiger Analytics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RegressionComparison &mdash; Sales Price Prediction  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ta_lib.regression.api.RegressionComparison.__init__" href="ta_lib.regression.api.RegressionComparison.__init__.html" />
+    <link rel="prev" title="ta_lib.regression.api.wmape" href="ta_lib.regression.api.wmape.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Sales Price Prediction
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../project_overview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api/ta_lib.html">ta_lib</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ta_lib.regression.api.html">ta_lib.regression.api</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.mape.html">ta_lib.regression.api.mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.root_mean_squared_error.html">ta_lib.regression.api.root_mean_squared_error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.wmape.html">ta_lib.regression.api.wmape</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RegressionComparison</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.RegressionReport.html">RegressionReport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.html">SKLStatsmodelOLS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best_practices.html">Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Production scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sales Price Prediction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api_guide.html">API Documentation</a> &raquo;</li>
+          <li><a href="../api/ta_lib.html">ta_lib</a> &raquo;</li>
+          <li><a href="ta_lib.regression.api.html">ta_lib.regression.api</a> &raquo;</li>
+      <li>RegressionComparison</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/ta_lib.regression.api.RegressionComparison.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="regressioncomparison">
+<h1>RegressionComparison<a class="headerlink" href="#regressioncomparison" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ta_lib.regression.api.RegressionComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ta_lib.regression.api.</span></span><span class="sig-name descname"><span class="pre">RegressionComparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.series.Series</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.core.frame.DataFrame</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yhats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ta_lib.regression.api.RegressionComparison" title="Permalink to this definition"></a></dt>
+<dd><p>Model comparison toolkit for regression models.</p>
+<p>Generate report for model performance, interpretation &amp; diagnostics.</p>
+<p>There are two options:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Option 1: Using list/dict model objects.</dt><dd><ul>
+<li><p>Must have list/dict models, x, y.</p></li>
+<li><p>Capable to generate full fledged diagnostics listed below.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Option 2: Using predictors</dt><dd><ul>
+<li><p>Must have y, yhats (dict as {“model_name1”: yhat1, “model_name2”: yhat2 ..})</p></li>
+<li><p>generates only model performance</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>models</strong> (<em>list/dict models</em><em> or </em><em>pipeline object</em><em>, </em><em>default=None</em>) – Each model object should have api similar to sklearn with methods <cite>fit</cite>, <cite>predict</cite>, and <cite>get_model_type</cite>
+If pipeline is passed the last stage of the pipeline is assumed as model and rest of the pipeline is applied on x before running the report.</p></li>
+<li><p><strong>y</strong> (<em>pd.DataFrame</em><em>, </em><em>array-like of shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – The target values. This is mandatory. When more than one column is sent, the first column is treated as y.</p></li>
+<li><p><strong>x</strong> (<em>{pd.DataFrame</em><em>, </em><em>array-like} of shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em><em>, </em><em>default=None</em>) – The input samples. If available model diagnostics are reported.</p></li>
+<li><p><strong>yhats</strong> (<em>dict of yhats with Similar to y with model names as keys</em><em>, </em><em>default=None</em>) – The prediction samples. When models is None, this is mandatory.
+If models &amp; x are passed, this is not mandatory.</p></li>
+<li><p><strong>refit</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, model is retrained with x_train &amp; y_train</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">tigerml.model_eval</span> <span class="kn">import</span> <span class="n">RegressionComparison</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Model 1 - Linear Regression</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yhat_test_lr</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Model 2 - Random Forest</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yhat_test_rf</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Option 1 - with model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">regOpt1</span> <span class="o">=</span> <span class="n">RegressionComparison</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="n">lr</span><span class="p">,</span> <span class="n">rf</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">X_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">regOpt1</span><span class="o">.</span><span class="n">get_report</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Option 2 - without model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">regOpt2</span> <span class="o">=</span> <span class="n">RegressionComparison</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">yhats</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Linear Regression&quot;</span><span class="p">:</span><span class="n">yhat_test_lr</span><span class="p">,</span> <span class="s2">&quot;Random Forest&quot;</span><span class="p">:</span><span class="n">yhat_test_rf</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">regOpt2</span><span class="o">.</span><span class="n">get_report</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.__init__.html#ta_lib.regression.api.RegressionComparison.__init__" title="ta_lib.regression.api.RegressionComparison.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.__init__</span></code></a>(y[, models, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.add_report_element.html#ta_lib.regression.api.RegressionComparison.add_report_element" title="ta_lib.regression.api.RegressionComparison.add_report_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.add_report_element</span></code></a>(...)</p></td>
+<td><p>Add custom element (plot/table) to the report.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.feature_importances.html#ta_lib.regression.api.RegressionComparison.feature_importances" title="ta_lib.regression.api.RegressionComparison.feature_importances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.feature_importances</span></code></a>()</p></td>
+<td><p>Returns a bar chart of feature importance of given models for comparison.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.get_performance_report.html#ta_lib.regression.api.RegressionComparison.get_performance_report" title="ta_lib.regression.api.RegressionComparison.get_performance_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.get_performance_report</span></code></a>()</p></td>
+<td><p>Return a consolidate dictionary contains regression specific comparative matrices values and different.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.get_report.html#ta_lib.regression.api.RegressionComparison.get_report" title="ta_lib.regression.api.RegressionComparison.get_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.get_report</span></code></a>([file_path, ...])</p></td>
+<td><p>Generate a consolidate report of regression comparison for multiple models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.perf_metrics.html#ta_lib.regression.api.RegressionComparison.perf_metrics" title="ta_lib.regression.api.RegressionComparison.perf_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.perf_metrics</span></code></a>()</p></td>
+<td><p>Returns a HTML table for the regression metrics for all the models given as list input.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.pred_error.html#ta_lib.regression.api.RegressionComparison.pred_error" title="ta_lib.regression.api.RegressionComparison.pred_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.pred_error</span></code></a>()</p></td>
+<td><p>Returns a dictionary of plots of prediction error for multiple model input which can be used for comparison.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.remove_report_element.html#ta_lib.regression.api.RegressionComparison.remove_report_element" title="ta_lib.regression.api.RegressionComparison.remove_report_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.remove_report_element</span></code></a>(...)</p></td>
+<td><p>Remove custom element (plot/table) from the report.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.residual_distribution.html#ta_lib.regression.api.RegressionComparison.residual_distribution" title="ta_lib.regression.api.RegressionComparison.residual_distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.residual_distribution</span></code></a>()</p></td>
+<td><p>Returns residual distribution for multiple models input as an interactive plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.residual_plot.html#ta_lib.regression.api.RegressionComparison.residual_plot" title="ta_lib.regression.api.RegressionComparison.residual_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.residual_plot</span></code></a>()</p></td>
+<td><p>Returns a dictionary of plots of residuals for multiple model input which can be used for comparison.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.shap_summary_plots.html#ta_lib.regression.api.RegressionComparison.shap_summary_plots" title="ta_lib.regression.api.RegressionComparison.shap_summary_plots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.shap_summary_plots</span></code></a>()</p></td>
+<td><p>Returns stacked bar chart of mean absolute SHAP values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.show_element_tree.html#ta_lib.regression.api.RegressionComparison.show_element_tree" title="ta_lib.regression.api.RegressionComparison.show_element_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegressionComparison.show_element_tree</span></code></a>([...])</p></td>
+<td><p>Print element tree.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ta_lib.regression.api.wmape.html" class="btn btn-neutral float-left" title="ta_lib.regression.api.wmape" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ta_lib.regression.api.RegressionComparison.__init__.html" class="btn btn-neutral float-right" title="ta_lib.regression.api.RegressionComparison.__init__" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tiger Analytics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environment Setup &mdash; Sales Price Prediction  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Organization" href="organization.html" />
+    <link rel="prev" title="Developer Guide" href="../developer_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Sales Price Prediction
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../project_overview.html">Project Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer_guide.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shell-environment">Shell Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-app">Ubuntu App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git-bash">GIT Bash</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-control">Version Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#miniconda">Miniconda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putty">Putty</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#winscp">WinSCP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pre-requisties">Pre-requisties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="organization.html">Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_processing.html">Data Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_analysis_summary.html">Data Analysis Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modeling.html">Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_guide.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best_practices.html">Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Production scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sales Price Prediction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../developer_guide.html">Developer Guide</a> &raquo;</li>
+      <li>Environment Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developer_guide/env_set_up.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="environment-setup">
+<h1>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline"></a></h1>
+<p>This chapter deals with installing certain prerequisites to set up the
+development environment and learn some crucial tools that would make us productive.</p>
+<section id="shell-environment">
+<h2>Shell Environment<a class="headerlink" href="#shell-environment" title="Permalink to this headline"></a></h2>
+<p>A Shell provides us with an interface to the Unix system. Unix Shell is an environment in which we can run our commands, programs, and shell scripts. To set up a full fledged UNIX/Linux environment in Windows, we may either need
+softwares like <strong>Ubuntu App/ GIT Bash</strong> or Install a <strong>virtual machine</strong> with the Linux Operating system, however, the latter consumes a lot of resources when not backed by powerful high performance computer.</p>
+<section id="ubuntu-app">
+<h3>Ubuntu App<a class="headerlink" href="#ubuntu-app" title="Permalink to this headline"></a></h3>
+<p>The Ubuntu App is freely available to be installed in Windows on our laptops. Perfect for file management, development, remote administration, and a thousand other tasks, this is an excellent tool one can resort to for day-to-day activities.</p>
+<a class="reference internal image-reference" href="../_images/ubuntu.png"><img alt="Ubuntu App" class="align-left" src="../_images/ubuntu.png" style="width: 400px; height: 550px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to enable <strong>Windows Subsystem for Linux</strong> on your window laptops using these steps:</p>
+<ol class="arabic">
+<li><p>Open <cite>Turn Windows features on or off</cite></p></li>
+<li><p>Check the <cite>Windows Subsystem for Linux</cite> option</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/enable_wsl.png"><img alt="Enable WSL" src="../_images/enable_wsl.png" style="width: 250px; height: 200px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Click the <cite>OK button and the Restart now</cite> button</p></li>
+</ol>
+</div>
+<p>Once installed, in the Linux system, Edit/Create (if it doesn’t exist) the file <code class="docutils literal notranslate"><span class="pre">/etc/wsl.conf</span></code> and add the following content</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">automount</span><span class="p">]</span>
+<span class="n">root</span> <span class="o">=</span> <span class="o">/</span>
+<span class="n">options</span> <span class="o">=</span> <span class="s2">&quot;metadata&quot;</span>
+</pre></div>
+</div>
+<p>The above configuration ensures that your windows filesystems like <strong>C:\</strong>, <strong>D:\</strong> are mounted at <strong>/c</strong> and <strong>/d</strong> respectively on the linux filesystem.
+This is particularly important for some software like Docker to work effectively.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ol class="arabic simple">
+<li><p>Refer to the <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config">WSL Configuration</a> for detailed information.</p></li>
+<li><p>The instructions stated above are for WSL1. See <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/compare-versions">https://docs.microsoft.com/en-us/windows/wsl/compare-versions</a> for comparing the features between versions.</p></li>
+</ol>
+</div>
+</section>
+<section id="git-bash">
+<h3>GIT Bash<a class="headerlink" href="#git-bash" title="Permalink to this headline"></a></h3>
+<p>Git Bash is a source control management system for Windows. Git Bash is not a GUI software, it is a command-line prompt. It is used to write and run commands on the terminal.
+<strong>Download</strong> GIT Bash from <a class="reference external" href="https://gitforwindows.org/">here</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although both Ubuntu App and GIT Bash can be used for Linux Environment, Ubuntu App is preferred over GIT Bash</p>
+</div>
+</section>
+</section>
+<section id="visual-studio-code">
+<h2>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code IDE</a> is a free, lightweight, open source IDE, with support for Mac, Windows, and Linux.</p>
+</section>
+<section id="version-control">
+<h2>Version Control<a class="headerlink" href="#version-control" title="Permalink to this headline"></a></h2>
+<p><strong>GIT</strong> is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.
+If you are using windows, download and install git <a class="reference external" href="https://git-scm.com/download/">here</a>. If you are using Linux or Mac, you can do</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>1. If you have already installed Git Bash or Git Desktop but the git cli is not accessible by default from cmdline.
+Then, you can add the path to git.exe to your system path. Here are the paths on a recent setup</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">LOCALAPPDATA</span><span class="o">%</span>\<span class="n">Programs</span>\<span class="n">Git</span>\<span class="n">git</span><span class="o">-</span><span class="n">bash</span><span class="o">.</span><span class="n">exe</span>
+<span class="o">%</span><span class="n">LOCALAPPDATA</span><span class="o">%</span>\<span class="n">GitHubDesktop</span>\<span class="n">app</span><span class="o">-&lt;</span><span class="n">ver</span><span class="o">&gt;</span>\<span class="n">resources</span>\<span class="n">app</span>\<span class="n">git</span>\<span class="n">mingw64</span>\<span class="nb">bin</span>\<span class="n">git</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Ensure that a <strong>Tiger Analytics</strong> GITHub account is created. If not, collaborate with the <strong>IT Team</strong> to get it done.</p></li>
+</ol>
+</div>
+</section>
+<section id="miniconda">
+<span id="miniconda-setup"></span><h2>Miniconda<a class="headerlink" href="#miniconda" title="Permalink to this headline"></a></h2>
+<p>Install <strong>Miniconda</strong> on your Ubuntu app by following the below link <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If you already have <cite>Anaconda</cite> installed, please still go ahead and install Miniconda and use it for development.</p></li>
+<li><p>If conda command is not in your path, you can configure your shell by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code></p></li>
+</ul>
+</div>
+</section>
+<section id="putty">
+<span id="putty-setup"></span><h2>Putty<a class="headerlink" href="#putty" title="Permalink to this headline"></a></h2>
+<p>PuTTY is a common utility to connect to remote linux servers</p>
+<section id="pre-requisites">
+<h3>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>You should have putty.exe. You can download it <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">here</a>. Get 64 bit putty.exe from “Alternative binary files” section.</p></li>
+<li><p>Get the Public IP address &amp; ppk key file for your instance from IT Helpdesk</p></li>
+</ul>
+</section>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Double click on putty. You should get something like the below image.</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<img alt="putty_session" src="../_images/02_putty_session.png" />
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">Putty session</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>In the Host Name text box type <cite>ubuntu&#64;&lt;yourip&gt;</cite> .</p></li>
+<li><p>On the left panel navigate to Connection -&gt; SSH -&gt; Auth and browse for ppk file. Refer below image.</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<img alt="03_putty_key" src="../_images/03_putty_key.jpg" />
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">Putty authentication</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>On the left panel navigate to Session.</p></li>
+<li><p>In the text box below Saved Sessions, give it a name like AutoML and click save.</p></li>
+</ul>
+</section>
+</section>
+<section id="winscp">
+<span id="winscp-setup"></span><h2>WinSCP<a class="headerlink" href="#winscp" title="Permalink to this headline"></a></h2>
+<p>WinSCP is a common utility to copy files to and from remote linux servers</p>
+<section id="pre-requisties">
+<h3>Pre-requisties<a class="headerlink" href="#pre-requisties" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>You can download the portalbe version of WinSCP from <a class="reference external" href="https://winscp.net/eng/downloads.php">here</a>.</p></li>
+<li><p>Get the Public IP address &amp; ppk key file for your instance from IT Helpdesk / project leads</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Setup<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Double click on WinSCP.exe (~18 MB file). Refer to image below.</p></li>
+</ul>
+<figure class="align-center" id="id4">
+<img alt="04_WINSCP_session" src="../_images/04_WINSCP_session.png" />
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">WINSCP session</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>In the Host Name text box type &lt;yourip&gt;.</p></li>
+<li><p>In the User name text box type ubuntu.</p></li>
+<li><p>Click on advanced. Then navigate to SSH -&gt; Authentication. Refer below image.</p></li>
+<li><p>In the box below private key, browse for ppk file</p></li>
+</ul>
+<figure class="align-center" id="id5">
+<img alt="05_WINSCP_key" src="../_images/05_WINSCP_key.png" />
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">WINSCP authentication</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Click ok on the advanced tab. Then click Save. In the popup window give it an appropriate name.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../developer_guide.html" class="btn btn-neutral float-left" title="Developer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="organization.html" class="btn btn-neutral float-right" title="Organization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tiger Analytics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

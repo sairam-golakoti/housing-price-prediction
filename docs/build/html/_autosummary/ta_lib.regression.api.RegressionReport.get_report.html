@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ta_lib.regression.api.RegressionReport.get_report &mdash; Sales Price Prediction  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ta_lib.regression.api.RegressionReport.prediction_error_plot" href="ta_lib.regression.api.RegressionReport.prediction_error_plot.html" />
+    <link rel="prev" title="ta_lib.regression.api.RegressionReport.get_performance_report" href="ta_lib.regression.api.RegressionReport.get_performance_report.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Sales Price Prediction
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../project_overview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api/ta_lib.html">ta_lib</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ta_lib.regression.api.html">ta_lib.regression.api</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.mape.html">ta_lib.regression.api.mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.root_mean_squared_error.html">ta_lib.regression.api.root_mean_squared_error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.wmape.html">ta_lib.regression.api.wmape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.RegressionComparison.html">RegressionComparison</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="ta_lib.regression.api.RegressionReport.html">RegressionReport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ta_lib.regression.api.SKLStatsmodelOLS.html">SKLStatsmodelOLS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../best_practices.html">Best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Production scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sales Price Prediction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api_guide.html">API Documentation</a> &raquo;</li>
+          <li><a href="../api/ta_lib.html">ta_lib</a> &raquo;</li>
+          <li><a href="ta_lib.regression.api.html">ta_lib.regression.api</a> &raquo;</li>
+          <li><a href="ta_lib.regression.api.RegressionReport.html">RegressionReport</a> &raquo;</li>
+      <li>ta_lib.regression.api.RegressionReport.get_report</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/ta_lib.regression.api.RegressionReport.get_report.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="ta-lib-regression-api-regressionreport-get-report">
+<h1>ta_lib.regression.api.RegressionReport.get_report<a class="headerlink" href="#ta-lib-regression-api-regressionreport-get-report" title="Permalink to this headline"></a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="ta_lib.regression.api.RegressionReport.get_report">
+<span class="sig-prename descclassname"><span class="pre">RegressionReport.</span></span><span class="sig-name descname"><span class="pre">get_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.html'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_shap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errorbuckets_spec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ta_lib.regression.api.RegressionReport.get_report" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a consolidate report of model performance and interpretation.</p>
+<p>The generated report would have matrices values and prediction results under model performance section and
+feature importance under model interpretation section. If shap support is included (include_shap=True) then it
+will include shap values based feature importance, dependence plots and prediction error plots in the report. Refer <a class="reference external" href="https://tigeranalytics-code-templates.readthedocs-hosted.com/projects/tigerml/en/latest/tigerml/model_eval.html#shap-baseline-ref">SHAP Interpretation</a> for more information.</p>
+<p>It save the final report in the format and at location as specified by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>format</strong> (<em>str</em><em>, </em><em>default='.html'</em>) – format of report to be generated</p></li>
+<li><p><strong>file_path</strong> (<em>str</em><em>, </em><em>default=''</em>) – location with filename where report to be saved. By default name is auto generated from system timestamp and saved in working directory.</p></li>
+<li><p><strong>include_shap</strong> (<em>bool</em><em>, </em><em>default=True</em>) – flag whether shap support need to include or not for additional model interpretation. Note: this takes very long to run for tree models.</p></li>
+<li><p><strong>errorbuckets_spec</strong> (<em>dict</em><em>, </em><em>default={&quot;type&quot;: &quot;perc&quot;</em><em>, </em><em>&quot;edges&quot;:</em><em> [</em><em>-0.2</em><em>, </em><em>0.2</em><em>]</em><em>, </em><em>&quot;labels&quot;:</em><em> [</em><em>&quot;under predictions</em><em> (</em><em>-inf</em><em>,</em><em>-0.2</em><em>]</em><em>&quot;</em><em>,</em><em>&quot;correct predictions&quot;</em><em>,</em><em>&quot;over predictions</em><em> [</em><em>0.2</em><em>, </em><em>inf</em><em>)</em><em>&quot;</em><em>]</em><em>,</em><em>&quot;top_n_cols&quot;: 10}</em>) – <dl class="simple">
+<dt>Specifications for prediction error buckets definitions and error analysis. It should be having following information:</dt><dd><dl class="simple">
+<dt>type - str</dt><dd><p>type of values (one of from ‘perc’ (for percentage) and ‘abs’ (for absolute))</p>
+</dd>
+<dt>edges - list of floats</dt><dd><p>list of values to defined error buckets (negative for under-prediction and positive for over-prediction definitions)</p>
+</dd>
+<dt>labels - list of str</dt><dd><p>list of labels to assign corresponding to each error buckets (should be more than 1 of edges length)</p>
+</dd>
+<dt>top_n_cols - int</dt><dd><p>number of top columns to be select from model feature importance for error analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>n_features</strong> (<em>int</em><em>, </em><em>default=20</em>) – No. of top features used for interpretation. Applies to dependency plots and feature importance.</p></li>
+<li><p><strong>excel_params</strong> (<em>dict</em>) – <p>Dictionary containing the following keys if the format is “.xlsx”.
+If a key is not provided, it will take the default values.</p>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt>have_plot<span class="classifier">boolean; default False.</span></dt><dd><p>If True, keep the plots in image format in excel report.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>n_rows<span class="classifier">int; default 100.</span></dt><dd><p>Number of sample rows to keep for plot types containing all the records in data (for example, density plot, scatter plot etc.)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ta_lib.regression.api.RegressionReport.get_performance_report.html" class="btn btn-neutral float-left" title="ta_lib.regression.api.RegressionReport.get_performance_report" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ta_lib.regression.api.RegressionReport.prediction_error_plot.html" class="btn btn-neutral float-right" title="ta_lib.regression.api.RegressionReport.prediction_error_plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tiger Analytics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

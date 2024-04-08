@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best practices &mdash; Sales Price Prediction  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Production scripts" href="modules.html" />
+    <link rel="prev" title="FAQ" href="user_guide/faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sales Price Prediction
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_overview.html">Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Best practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#idiomatic-code">Idiomatic code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-testing">Code Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-should-i-test">What should I test ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-approach-testing-in-your-project">How to approach testing in your project ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-write-test-cases">How to write test cases ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-review">Code Review</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tools-for-review-and-collaboration">Tools for review and collaboration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advice-on-configuring-your-github-repository"><strong>Advice</strong> on configuring your <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advice-for-the-developer"><strong>Advice</strong> for the developer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advice-for-the-code-reviewer"><strong>Advice</strong> for the code reviewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review-faq-ref">FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#packaging">Packaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#restructuredtext-syntax">reStructuredText Syntax</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#word-formatting">Word Formatting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sections">Sections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bulleted-list">Bulleted List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enumerated-list">Enumerated List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hyperlinks">Hyperlinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#embedding-images-and-code-blocks">Embedding Images and Code blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#equation-editor">Equation editor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Production scripts</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sales Price Prediction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Best practices</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/best_practices.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="best-practices">
+<h1>Best practices<a class="headerlink" href="#best-practices" title="Permalink to this headline"></a></h1>
+<p>A standard makes sure that all the developers working on the project are following certain specified guidelines. Formulating the code helps in easy understanding and maintenance of the code, and hence enhanced efficiency.
+It largely reduces the interdependence between modules and aids in better error handling.</p>
+<p>Below are certain aspects of best practices one should adhere to when developing scripts.</p>
+<section id="idiomatic-code">
+<h2>Idiomatic code<a class="headerlink" href="#idiomatic-code" title="Permalink to this headline"></a></h2>
+<p>One of the biggest advantages of writing idiomatic code is that, <strong>it greatly improves the readability of the code</strong>, there by making it easier to maintain. Also, it helps in learning the language and explore the features better.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here are the links to the basics of idiomatic code</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.python-guide.org/writing/style/">https://docs.python-guide.org/writing/style/</a></p></li>
+<li><p><a class="reference external" href="https://pep8.org/">https://pep8.org/</a></p></li>
+</ol>
+</div>
+</section>
+<section id="code-testing">
+<h2>Code Testing<a class="headerlink" href="#code-testing" title="Permalink to this headline"></a></h2>
+<p>A test case is a set of conditions which is used to determine whether a system under test works correctly.</p>
+<p>While below there are details on code testing, very broadly our approach for testing is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Styles tests are mandatory to ensure comprehension.</p></li>
+<li><p>All functions exposed to consumption must be unit tested</p></li>
+<li><p>Functional tests are needed for code pipelines that are expected to be put in production.</p></li>
+<li><p>Integration tests are needed for all downstream outputs and external upstream sources such as flatfiles, web-services.</p></li>
+<li><p>Regression tests can be considered to reduce cumulative maintenance efforts.</p></li>
+<li><p>Installation tests for code packages and property tests for complex logic is recommended.</p></li>
+</ul>
+</div></blockquote>
+<section id="what-should-i-test">
+<h3>What should I test ?<a class="headerlink" href="#what-should-i-test" title="Permalink to this headline"></a></h3>
+<p>Here are some guidelines:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">style</span></code> tests. These are tests that ensure the coding standards and guidelines are being followed for your project using tools like <code class="docutils literal notranslate"><span class="pre">flake8</span></code>. These are trivial to setup and significantly improve the quality of your code. These should be required in every project.</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">unit</span></code> tests. These are tests for individual functions in your code. It is a good idea to start with unit tests for the API that the end-users use the most. Ideally, you want to test most of your <code class="docutils literal notranslate"><span class="pre">public</span></code> API. These tests typically use synthetic data and/or examples that are included with the tests.</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">functional</span></code> tests. These are tests for common user workflows in your code. For instance, tests to run through the data ingestion, training and the inference workflows. Ideally, you want to use realistic data for these tests that might require some set up before running the tests.</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">integration</span></code> tests. These are tests to ensure compatibility with external (to your code) services upstream/downstream of your component. These could be accessing some external databases or web-services or even formatted file outputs. The tests are an excellent way to document the agreed upon specification for these interfaces. For instance, if a formatted output is expected, a test verifying the output for that format would be a living document for the specification of the expected formatting.</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">installation</span> <span class="pre">tests</span></code> tests. These are tests to ensure that your library or application has been installed correctly on the target system. You can start with a test that just checks the necessary imports, folders and other files required for your code to run. If you have created a test suite, they can be made available for the user to run and test as an additional check.</p></li>
+<li><p>Consider writing <code class="docutils literal notranslate"><span class="pre">regression</span></code> tests. As folks start using your code, they will invariably run into bugs or problems and report them. It is a good idea to write a test to reproduce the bug and add it to the test suite as part of fixing the bug. These tests ensure that you don’t reintroduce a bug that was already fixed earlier and <code class="docutils literal notranslate"><span class="pre">regress</span></code> (and thus the name for these tests) the software.</p></li>
+<li><p>If time permits, consider writing <code class="docutils literal notranslate"><span class="pre">property</span></code> tests for chosen functions that are critical and/or have complex logic. These are essentially <code class="docutils literal notranslate"><span class="pre">unit</span></code> tests but you don’t test your code for specific examples (i.e. known inputs and outputs) but instead try to check some generic facts or invariants that hold for your function given an input. Consider the functions to save and load a dataframe. Now, the actual values in the dataframe themselves are not important but we want to ensure that the operations are reversible, i.e. <code class="docutils literal notranslate"><span class="pre">load_data(save_data(df))</span></code> should be identical to the original dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code>. These tests are powerful because we can randomly generate a lot of examples automatically and still verify that the <code class="docutils literal notranslate"><span class="pre">property</span></code> holds. <a class="reference external" href="https://hypothesis.readthedocs.io/en/latest/index.html">Hypothesis</a> is a python library that provides this capability and can also be used to generate random data examples for <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> datastructures.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Advice</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Prefer using library functions from the standard library and vetted third-party libraries (e.g. <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>) to rolling your own code unless absolutely necessary. These libraries are used by a lot of folks and are usually well tested and are implemented with performance in mind.</p></li>
+<li><p>Set up the <code class="docutils literal notranslate"><span class="pre">style</span></code> tests right at the beginning of your project. This ensures that the entire team follows the coding standards and guidelines right from the beginning.</p></li>
+<li><p>Make it easy to run these tests. Provide some automation scripts to quickly run the tests. <code class="docutils literal notranslate"><span class="pre">pytest</span></code> has a <a class="reference external" href="https://realpython.com/pytest-python-testing/#durations-reports-fighting-slow-tests">lot of options</a> to speedup your testing process.</p></li>
+<li><p>Automate the process. Add a <code class="docutils literal notranslate"><span class="pre">CI&lt;&gt;_</span></code> to your project if possible. These are services that monitor your version control repository (e.g. <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> repo) and run some scripts that you provide on certain events. For instance, you can configure it to run a shell command every time a commit is pushed to the remote repository. We can use these services as part of the code-review process to ensure that the required tests are run automatically and the reviewer can focus on non-trivial issues.</p></li>
+</ol>
+<p>Very few CI services offer free-tier for non open-source projects and windows support. If you are on <code class="docutils literal notranslate"><span class="pre">GitHub</span></code>, then <code class="docutils literal notranslate"><span class="pre">GitHub</span> <span class="pre">Actions</span></code> is an integrated CI service that can be used, and <code class="docutils literal notranslate"><span class="pre">CircleCI</span></code> is another good option. Note that the free-tier option provides limited compute hours per month. If your CI takes too long to run, that can slow down the process for you and others sharing the CI service. So avoid running CI for every single commit (often the practice if you have paid plan). A good default here is to run CI on new PRs and when a closed PR is re-opened. This ensures that all PRs automatically run the tests when created and we can easily re-run the CI when required by simply closing and re-opening the PR.</p>
+<ol class="arabic simple" start="5">
+<li><p>Focus on <code class="docutils literal notranslate"><span class="pre">style</span></code> and <code class="docutils literal notranslate"><span class="pre">unit</span></code> tests during the development phase. As you start working on deployment to production, start focusing on <code class="docutils literal notranslate"><span class="pre">integration</span></code> and <code class="docutils literal notranslate"><span class="pre">regression</span></code> tests.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="how-to-approach-testing-in-your-project">
+<h3>How to approach testing in your project ?<a class="headerlink" href="#how-to-approach-testing-in-your-project" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Remember the 80-20 rule and the age old adage of <cite>Don’t let perfect be the enemy of good</cite>.</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>Start with <code class="docutils literal notranslate"><span class="pre">style</span></code> tests for your project. There will be a one-time effort to standardize your existing codebase. Now, <code class="docutils literal notranslate"><span class="pre">flake8</span></code> will highlight a lot of errors and it might seem daunting to have to fix all those errors. Note that there are only a few classes of errors (the error code printed by flake8) and you can ask <code class="docutils literal notranslate"><span class="pre">flake8</span></code> to ignore specific classes by passing it as an option. A good first step would be to use code autoformatters like <code class="docutils literal notranslate"><span class="pre">black</span></code> and <code class="docutils literal notranslate"><span class="pre">isort</span></code> to automatically reformat your code. Then, add a test case to run <code class="docutils literal notranslate"><span class="pre">flake8</span></code> and interactively add classes to ignore for unimportant errors and fix any important issues. This does not take much time and gets you almost 60% to your end goal.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">pytest</span></code> to add tests for some commonly used and/or critical functions in your code. For instance, if you have a non-standard custom metric to evaluate your model, that would be a good function to have exhaustive tests as it is critical to your whole project. Similarly, testing data validity (schema, data distributions, missing values, outliers etc) at different stages of your processing pipeline would be a very useful set of tests.</p></li>
+<li><p>When writing <code class="docutils literal notranslate"><span class="pre">unit</span></code> tests, start with simple example based tests. You can use <cite>pytest features&lt;https://docs.pytest.org/en/stable/parametrize.html&gt;_</cite> to run your tests on a well defined set of examples. For functions that have complicated logic (e.g. many edge cases are possible), consider using <code class="docutils literal notranslate"><span class="pre">Hypothesis</span></code> library to automatically generate a large number of examples and run <code class="docutils literal notranslate"><span class="pre">property</span></code> tests on them.</p></li>
+<li><p>When you start sharing your code with external users and/or looking into production environments, it is good to add some <code class="docutils literal notranslate"><span class="pre">installation</span> <span class="pre">tests</span></code> and <code class="docutils literal notranslate"><span class="pre">integration</span> <span class="pre">tests</span></code> to ensure the code has been installed and configured properly. These are very useful when trying to debug issues related to environment, access and/or configuration.</p></li>
+<li><p>Throughout the project, as and when you encounter bugs and fix them in the code, add a <code class="docutils literal notranslate"><span class="pre">regression</span></code> test to ensure it doesn’t occur again.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="how-to-write-test-cases">
+<h3>How to write test cases ?<a class="headerlink" href="#how-to-write-test-cases" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Go through the links below for more detailed test case generation:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.python-guide.org/writing/tests/">Overview of testing in Python</a></p></li>
+<li><p><a class="reference external" href="https://nedbatchelder.com/blog/202002/getting_started_testing_with_pytest.html">A detailed tutorial on testing from basics to modern tools</a></p></li>
+</ol>
+</div>
+</section>
+<section id="faq">
+<h3>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline"></a></h3>
+<ol class="arabic simple">
+<li><p>Tests will take away time from development efforts ?</p></li>
+</ol>
+<p>The purpose of the test cases is to raise the quality of the code and help the developers be more productive by increasing your skill and cutting down the time spent on manual testing. If done right, integrating automated testing in your project should reduce the overall development time and produce higher quality deliverables.</p>
+</section>
+</section>
+<section id="code-review">
+<h2>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline"></a></h2>
+<p>Code review is the practice of asking your peers and/or a mentor to review a
+piece of code developed by you. This is a very important process to include
+in your day-to-day workflow as it significantly reduces the chances of a bug
+slipping by and improves overall quality of the code. It is also a great way
+for developers to learn from each other and ensure a common standards and’
+style in the code base.</p>
+<ul class="simple">
+<li><p>Avoid, over-the-shoulder, email &amp; pair programming as review methods.</p></li>
+<li><p>Before starting to code, design your code and concur with your reviewers.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The discussion below assumes you are using <code class="docutils literal notranslate"><span class="pre">GIT</span></code> for version control and
+<code class="docutils literal notranslate"><span class="pre">GitHub</span></code> for hosting the git repository and collaboration. There are other
+hosting platforms, e.g. <cite>BitBucket</cite> or <cite>GitLab</cite>, but they all have very
+similar features to <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> and the recommendations below apply to those
+as well.</p>
+<p>If you have an alternative setup, please see the <a class="reference internal" href="#review-faq-ref"><span class="std std-ref">FAQ</span></a> section
+for some alternatives.</p>
+</div>
+<section id="tools-for-review-and-collaboration">
+<h3>Tools for review and collaboration<a class="headerlink" href="#tools-for-review-and-collaboration" title="Permalink to this headline"></a></h3>
+<p>Shared version control is a pre-requisite for an effective code-review process.
+<code class="docutils literal notranslate"><span class="pre">GitHub</span></code> is a hosting platform for <code class="docutils literal notranslate"><span class="pre">Git</span></code> repositories and tools for a team
+to collaborative work on the repository.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> platform provides authentication and authorization for your shared
+repositories to ensure only team members with appropriate permissions can perform
+certain operations.</p>
+<p>There is also an <a class="reference external" href="https://guides.github.com/features/issues/">Issue Tracker</a> to help track feature or
+change requests for your project. This allows the entire team to work collaboratively online using
+<code class="docutils literal notranslate"><span class="pre">GitHub</span></code> issues to discuss the request and scoping out the details of a task.
+This makes the whole process democratic and open to the entire team. As the discussions
+happen on the platform and are archived, you always have a chronological record providing
+context for the various decisions made throughout the course of the project.</p>
+<p><code class="docutils literal notranslate"><span class="pre">GitHub</span></code> provides one other important tool for collaboration focused around
+making code changes to the repository and code review called <a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests">Pull Requests (PR)</a>.
+Essentially, once you create a <code class="docutils literal notranslate"><span class="pre">Git</span></code> branch containing your changes and push it to the
+repository, you can initiate a <code class="docutils literal notranslate"><span class="pre">PR</span></code> workflow to request feedback from one or more team
+members. <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> provides the tools to do create the <code class="docutils literal notranslate"><span class="pre">PR</span></code> and an interface to be able
+to review the changes and provide comments and have a discussion. Again, all the collaboration
+happens on the platform and the discussions are archived for future reference.</p>
+<dl class="simple">
+<dt>Here are some useful references on <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> workflows:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://guides.github.com/introduction/git-handbook/">10 minute handbook on Git and GitHub</a></p></li>
+<li><p><a class="reference external" href="https://guides.github.com/">Guides on working features in GitHub</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="advice-on-configuring-your-github-repository">
+<h3><strong>Advice</strong> on configuring your <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> repository<a class="headerlink" href="#advice-on-configuring-your-github-repository" title="Permalink to this headline"></a></h3>
+<p>Here are some pointer on the use of these tools:</p>
+<ol class="arabic">
+<li><p>Decide on a <code class="docutils literal notranslate"><span class="pre">Git</span></code> workflow.</p>
+<p>A typical approach is <a class="reference external" href="https://trunkbaseddevelopment.com/">trunk-based development</a>. In this model, you have a main branch (often called <code class="docutils literal notranslate"><span class="pre">master</span></code> or <code class="docutils literal notranslate"><span class="pre">trunk</span></code>) that is the latest stable version of your code. Team members create <cite>short lived</cite> branches from your main branch and merge their changes back to the main branch.</p>
+</li>
+<li><p>Use the Issue tracker to track feature request, bugs and design discussions in your project.</p>
+<p>If you are not using an <code class="docutils literal notranslate"><span class="pre">Issue</span> <span class="pre">Tracker</span></code> for your project, please consider using the default tracker provided by
+<code class="docutils literal notranslate"><span class="pre">GitHub</span></code>. The <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> issue tracker has very useful features to <a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/managing-your-work-on-github/managing-your-work-with-issues">effectively manage your project</a>.</p>
+</li>
+<li><p><span class="highlighttext">Enable branch protection</span>.</p>
+<p>Set up access control so that team members have sufficient privileges to get their work done but no more. Restrict tricky parts of the workflow to senior team members to avoid breaking <code class="docutils literal notranslate"><span class="pre">master</span></code>. For instance, allow every team member to raise a <code class="docutils literal notranslate"><span class="pre">PR</span></code> but allow only a few team leads to be able to merge the PRs to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. Another access policy could be to disable pushing directly to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
+<p>Once the policies are set up, <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> will automatically enforce these policies and provide a safer environment for your team members by preventing accidental/unintended changes to the repository.</p>
+</li>
+<li><p>Contribute your code changes using <code class="docutils literal notranslate"><span class="pre">Pull</span> <span class="pre">Request</span></code> mechanism.</p>
+<p><a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">Creating a Pull Request</a> is the recommended way to propose changes to code and conduct a code-review.</p>
+</li>
+<li><p><span class="highlighttext">Set up a CI system</span> to automatically run tests when a PR is created.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Continuous</span> <span class="pre">Integration</span></code> is the practice of automatically running running a suite of tests on a repository branch to check if it is safe to push into production. The idea is that we <code class="docutils literal notranslate"><span class="pre">continuously</span></code> check branches for production worthiness and fix any problems. This goes well with the <code class="docutils literal notranslate"><span class="pre">trunk</span></code> based <code class="docutils literal notranslate"><span class="pre">Git</span></code> workflow in ensuring the
+main branch is always ready to deploy to production.</p>
+<p><code class="docutils literal notranslate"><span class="pre">GitHub</span></code> provides a free-tier for <code class="docutils literal notranslate"><span class="pre">CI</span></code> called <a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/actions/learn-github-actions/introduction-to-github-actions">GitHub Actions</a> that offers an easy way to get started and add <code class="docutils literal notranslate"><span class="pre">CI</span></code> capabilities to your project. A good start is to automatically run your tests everytime a <code class="docutils literal notranslate"><span class="pre">PR</span></code> is raised.</p>
+</li>
+</ol>
+</section>
+<section id="advice-for-the-developer">
+<h3><strong>Advice</strong> for the developer<a class="headerlink" href="#advice-for-the-developer" title="Permalink to this headline"></a></h3>
+<p>Doing a good code review takes time and effort on the part of the reviewer. It is in your best interest to engage the reviewer and get useful feedback on your PR. Actively try not to not take any review comments personally or be defensive about your implementation. If you disagree with a comment or a suggested fix, try to understand the reviewer’s point of view and have a discussion around the merits and demerits of the approaches. You can ask someone senior to mediate an issue if you cannot come to an agreement. Treat every PR as an opportunity to learn more.</p>
+<p>Remember that your team members are busy as well, and may not immediately provide feedback. Typically, you should expect to get a review the same day but sometimes it can be longer depending on the reviewer. Expect and be prepared for a few iterations of review and feedback before it is finally approved by the reviewer. So it is in your best interest to make it as easy and convenient for the reviewer to review and approve your PR.</p>
+<p>Here are some recommendation for a <code class="docutils literal notranslate"><span class="pre">GIT</span></code> based development workflow for your day-to-day work:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">Issue</span></code> in the <code class="docutils literal notranslate"><span class="pre">Issue</span> <span class="pre">tracker</span></code> before starting any work that requires changing code in the repository. The issue should capture the requirements of a task. Say, you need to add a new feature or fix a bug in the code. You start by creating a new <code class="docutils literal notranslate"><span class="pre">Issue</span></code> if one doesn’t already exist and describe the feature or the bug in some detail.</p></li>
+<li><p>Once you create an issue, create a branch to work on the issue. It is often a good idea to use the issue id as part of the branch name. A good convention to follow is to name your branches as <code class="docutils literal notranslate"><span class="pre">&lt;fix-type&gt;/&lt;issue</span> <span class="pre">id&gt;/&lt;short</span> <span class="pre">moniker&gt;</span></code>. Here, <code class="docutils literal notranslate"><span class="pre">&lt;fix-type&gt;</span></code> indicates the type of code change:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>enh - enhancement</p></li>
+<li><p>feat - new feature</p></li>
+<li><p>fix - a bug fix</p></li>
+<li><p>doc - a documentation update</p></li>
+<li><p>test - update tests</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Here are some example branch names, see if you can guess the intent of the code changes in the branch</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>enh/issue#100/support-s3</p></li>
+<li><p>fix/issue#200/missing-config</p></li>
+<li><p>doc/issue#32/update-dev-guide</p></li>
+</ul>
+</div></blockquote>
+<p>As you work on your project, you will accumulate a lot of branches. You don’t want to delete your local branches as <code class="docutils literal notranslate"><span class="pre">GIT</span></code> keeps them out of your way and its good to have them in case you need them later. The above scheme helps you organize and search your branches effectively.</p>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p>As you start working on your feature or bug, it often helps to start with a test case. For bugs, the test should fail and then you start working on a fix to get the test to pass. For a new feature, you can write tests to mock out its behavior. This is called Test Driven Development (TDD) and is a good way to streamline your development process.</p></li>
+<li><p>As you work, make small logical commits and push to the remote repository frequently. This ensures that you don’t lose your changes if you lose your local copy by accident. Use short useful commit messages as these can be helpful when you look at the log/record of all the changes done. Consider using the <code class="docutils literal notranslate"><span class="pre">&lt;fix-type&gt;</span></code> labels to express the intent of a commit. Note that the commit messages have an active voice. This is a typical convention followed by many projects and is a good practice to adopt. Here is an example short commit messages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ENH: Support S3 backend for file storage.</p></li>
+<li><p>BUG: Fix test failure due to incorrect path manipulation.</p></li>
+<li><p>DOC: Fix typo in developer guide</p></li>
+<li><p>TEST: Add tests for S3 backend support.</p></li>
+<li><p>CLN: Format code</p></li>
+<li><p>MAINT: Update scikit package dependency to latest version.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Once you are ready to share your changes with the team, verify that you have followed coding standards and style guidelines as followed by your team.</p></li>
+<li><p>Before creating a PR, sync your local repository with remote repository using a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>. If the master has changed since you created your branch, you have one of two options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Do a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> on top of the latest master. This will apply all your changes one-by-one using the updated master and give you an opportunity to fix any conflicts.</p></li>
+<li><p>Merge the latest master <strong>onto</strong> your branch and fix any conflicts. Once fixed, push your branch again.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a PR with a meaningful title and a good description. The title should clearly convey the intent of the PR. The description should atleast have details on</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The contributions from the PR</p></li>
+<li><p>Any implementation/design choices made</p></li>
+<li><p>Reference(s) to the issues and/or other PRs that might be related to this.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Here are some pointers on <code class="docutils literal notranslate"><span class="pre">PR</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/">Github article on “How to write the perfect pull request”</a></p></li>
+<li><p><a class="reference external" href="https://github.com/thoughtbot/guides/tree/master/code-review">Thoughtworks article on code-review</a></p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li><p>Before you assign a reviewer, take a look at the diff view showing the changes from the PR and review it once and fix any glaring issues. Also, verify that the CI tests pass. Now, request a review from your team members.</p></li>
+<li><p>Note that you don’t have to wait until you have completed everything to open a PR. Sometimes, it is very useful to get early feedback on your approach before you go too far down the wrong road. In such cases the convention is to add a prefix <code class="docutils literal notranslate"><span class="pre">[WIP]</span></code> (Work In Progress) to indicate that the PR is not yet complete. You can ask a team member for a review and be specific about what you are looking for. Once you are done and ready for a final review, ensure all the requirements in the previous step are taken care of and remove the <code class="docutils literal notranslate"><span class="pre">WIP</span></code> prefix and request a review.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="advice-for-the-code-reviewer">
+<h3><strong>Advice</strong> for the code reviewer<a class="headerlink" href="#advice-for-the-code-reviewer" title="Permalink to this headline"></a></h3>
+<p>Consider PR reviews to be both learning and teaching moments and invest the time to do it well. A namesake review pointing out a few obvious issues and calling it a day might seem productive but is harmful in the long run. Particularly, for important PRs, plan to spend a good amount of time reviewing the PR. Avoid harsh language, maintain a friendly tone and provide suggestions rather than simply pointing out flaws in the code.</p>
+<p>Here are some specific things to look for in a code-review:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Title and description. Does the title and description (and any references in those) give you enough context on the the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>What does this PR contribute ?</p></li>
+<li><p>Why is this change needed ?</p></li>
+<li><p>What are the design decisions made in this PR ?</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Ensure basic standards are followed</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>There are adequate number of tests for the changes.</p></li>
+<li><p>CI runs successfully</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check for any inappropriate files in the PR</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sensitive information (credentials and/or secrets) that should not be committed to the repository without encryption.</p></li>
+<li><p>Binary files that are not to be part of the repo : pyc files, build files,</p></li>
+<li><p>Data files, particularly large files or frequently changing, should not be part of the repository</p></li>
+</ul>
+<p>When you find these issues, ensure that these file patterns are added to <cite>.gitignore</cite>.</p>
+</div></blockquote>
+</li>
+<li><p>Check for general non-idiomatic use of the language features. These include but not limited to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>bad variable names: suggest alternative names</p></li>
+<li><p>hardcoded constants: consider if they should be module level constants</p></li>
+<li><p>dead code : should be removed</p></li>
+<li><p>missing/invalid docstrings : suggest improvement</p></li>
+<li><p>inappropriate datastructures : point these out and suggest alternative</p></li>
+<li><p>inappropriate error handling : point these out and suggest alternative</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Suggest opportunities for improving the code. For instance:</p>
+<blockquote>
+<div><ul>
+<li><p>repeated code blocks : perhaps refactor into a function</p></li>
+<li><p>appropriate log statements : improve the logs</p></li>
+<li><p>global variables : see if they are really needed. Suggest alternative.</p></li>
+<li><p>complex logic : understand the intent and suggest alternative</p></li>
+<li><p>error handling : suggest places where error handling might be appropriate</p></li>
+<li><p>tests for new functionality. If a bug, a regression test that catches the original bug.</p></li>
+<li><p>check if tests are reasonably complete:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>check both the happy path and the edge cases including errors</p></li>
+<li><p>check the tests are modular: a test should test one thing.</p></li>
+<li><p>ensure data required by test if available</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>check if any documentation needs to be updated</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Consider the impact of the current change WRT performance, maintenance. Raise any concerns.</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="review-faq-ref">
+<span id="id1"></span><h3>FAQ<a class="headerlink" href="#review-faq-ref" title="Permalink to this headline"></a></h3>
+<p><strong>1. What are alternatives to GIT for version controlling?</strong></p>
+<p>Often times, the org is concerned about hosting the code outside their infrastructure.</p>
+<p>If you absolutely cannot use <code class="docutils literal notranslate"><span class="pre">GIT</span></code>, then you can maintain code folders in shared storage (e.g. NFS, GDrive, MS Teams etc.) and follow a strict change process to update the code folders.</p>
+<p>One option could be to have a reference folder which would be the source of truth and editable by only a few team members by readable by all. Team members can download the reference folder, make a copy for editing and make their changes to the copy. They can use external tools to compare the two folders and generate diff views for review by the team. Once review process is completed, team members with write access are responsible for updating the reference folder.</p>
+<p><strong>2. Isn’t creating an issue/ticket for every feature request (or bug) too much overhead?</strong></p>
+<p>Not really. It doesn’t take much time to create one. The time spent writing a good issue description is time spent towards better understanding of the requirements and the
+deliverables. Any confusions can be clarified on the issue discussion thread along with assumptions and constraints. The issues are archived and the entire thread is available for review
+any time for the entire team.</p>
+<p><strong>3. Aren’t these long branch names are hard to type everytime I use the CLI?</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">GIT</span></code> CLI tool supports tab-completion and if you are using a UI, then this is not even a problem.</p>
+<p><strong>4. What if I don’t have an issue for the work I am doing?</strong></p>
+<p>Please create one and use that. If that is not possible or desirable for some reason, skip the issue-id in the branch name.</p>
+<p><strong>5. What if my PR addresses multiple issues?</strong></p>
+<p>This is generally not preferred. Ideally you want one PR for one issue but sometimes you are in a hurry and you just want to fix a bunch of tiny issues in a single PR.
+In this case, drop the issue id from the branch name.</p>
+<p><strong>6. How to use git for reviewing notebooks?</strong></p>
+<p>The usual tools for reviewing code are not effective with the usual notebook files (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) as these files have a lot of metadata in addition to the code. If possible, consider getting a subscription to <a class="reference external" href="https://www.reviewnb.com/">ReviewNB App</a>. This has integrations to your hosted version control platform and provides an interface for reviewing notebooks that is very similar to the usual code review interface.</p>
+<p>If this is not possible, then you can install the open-source library <a class="reference external" href="https://nbdime.readthedocs.io/en/latest/">nbdime</a> to be able to view diffs of notebooks on your local machine. See <a class="reference external" href="https://nbdime.readthedocs.io/en/latest/index.html#contents">Installation and usage</a> for instructions on configuring the tool to work well with other tools in your workflow.</p>
+</section>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://sethrobertson.github.io/GitBestPractices/">Git Best practices</a></p></li>
+<li><p><a class="reference external" href="https://google.github.io/eng-practices/review/reviewer/">Google code review guides</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="packaging">
+<h2>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline"></a></h2>
+<p>It is necessary to package the code to share it with developers. It is easy for other developers to download and install your package either for casual experiments, or as part of large, professional systems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://python-packaging-tutorial.readthedocs.io/en/latest/setup_py.html">Here</a> is a reference to python packaging</p>
+</div>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline"></a></h2>
+<p>Logging is one of the aspects that is to be set up in the beginning of the project so as to debug code while developing.
+The application developer should determine the kind of logger messages required for various models and develop a configuration file
+that has mandatory and optional elements of logging.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Refer to the document <a class="reference external" href="https://docs.python-guide.org/writing/logging/">here</a> that talks in detail about logging.</p>
+</div>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h2>
+<p>The Python language has a substantial body of documentation, much of it contributed by various authors. The markup used for the Python documentation is reStructuredText, developed by the docutils project, amended by custom directives and using a toolset named Sphinx to post-process the HTML output.</p>
+<section id="restructuredtext-syntax">
+<h3>reStructuredText Syntax<a class="headerlink" href="#restructuredtext-syntax" title="Permalink to this headline"></a></h3>
+<p>Most Python documentation is written with reStructuredText. It’s like Markdown with all the optional extensions built in.</p>
+<p>The <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a>
+and the <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">reStructuredText Quick Reference</a>
+should help you familiarize yourself with its syntax.</p>
+<p>Subsequent sections are intended to serve as as a <span class="highlighttext">cheatsheet</span> for reStructuredText syntax.</p>
+<section id="word-formatting">
+<h4>Word Formatting<a class="headerlink" href="#word-formatting" title="Permalink to this headline"></a></h4>
+<figure class="align-center" id="id2">
+<img alt="_images/wordformat.png" src="_images/wordformat.png" />
+<figcaption>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">Syntax to write formatted words using reStructuredText (reST)</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The left side of the figure represents the plain text that is written as <cite>rst files</cite>.
+The right side of the figure represents the typical result rendered after building the documentation.</p>
+</section>
+<section id="sections">
+<h4>Sections<a class="headerlink" href="#sections" title="Permalink to this headline"></a></h4>
+<figure class="align-center" id="id3">
+<img alt="_images/title_doc.png" src="_images/title_doc.png" />
+<figcaption>
+<p><span class="caption-number">Figure 6 </span><span class="caption-text">Syntax to build Sections using reStructuredText (reST)</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bulleted-list">
+<h4>Bulleted List<a class="headerlink" href="#bulleted-list" title="Permalink to this headline"></a></h4>
+<figure class="align-center" id="id4">
+<img alt="_images/bulletlist.png" class="with-border" src="_images/bulletlist.png" />
+<figcaption>
+<p><span class="caption-number">Figure 7 </span><span class="caption-text">Syntax to write Bulleted List using reStructuredText (reST)</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="enumerated-list">
+<h4>Enumerated List<a class="headerlink" href="#enumerated-list" title="Permalink to this headline"></a></h4>
+<figure class="align-center" id="id5">
+<img alt="_images/enumeratedlist.png" class="with-border" src="_images/enumeratedlist.png" />
+<figcaption>
+<p><span class="caption-number">Figure 8 </span><span class="caption-text">Syntax to write Enumerated List using reStructuredText (reST)</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="hyperlinks">
+<h4>Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permalink to this headline"></a></h4>
+<figure class="align-center" id="id6">
+<img alt="_images/ext_hyperlink_ref.png" class="with-border" src="_images/ext_hyperlink_ref.png" />
+<figcaption>
+<p><span class="caption-number">Figure 9 </span><span class="caption-text">Syntax to write External Hyperlinks List using reStructuredText (reST)</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<img alt="_images/ext_hyperlink_ref.png" class="with-border" src="_images/ext_hyperlink_ref.png" />
+<figcaption>
+<p><span class="caption-number">Figure 10 </span><span class="caption-text">Syntax to write External Hyperlinks using reference in reStructuredText (reST)</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="embedding-images-and-code-blocks">
+<h4>Embedding Images and Code blocks<a class="headerlink" href="#embedding-images-and-code-blocks" title="Permalink to this headline"></a></h4>
+<p>An <em>image</em> is a simple picture. Inline images can be defined with an <em>image</em> directive.
+The URI for the image source file is specified in the directive argument.</p>
+<p>Below is the syntax for embedding images in the document.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> <span class="nt">&lt;dir/image_name.jpg&gt;</span>
+    <span class="nc">:width:</span> 200px
+    <span class="nc">:align:</span> center
+    <span class="nc">:height:</span> 100px
+    <span class="nc">:alt:</span> alternate text
+
+<span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> <span class="nt">&lt;dir/image_name.jpg&gt;</span>
+    <span class="nc">:width:</span> 200px
+    <span class="nc">:align:</span> center
+    <span class="nc">:height:</span> 100px
+    <span class="nc">:alt:</span> alternate text
+    <span class="nc">:figclass:</span> align-center
+
+    figure are like images but with a caption
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">figure</span></code> directive supports different options related to image positioning and Formatting like align, height and width, alternate text.</p>
+<p>To show snippets in different languages, there’s also a <code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive that we can use the following way</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+    <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Sample</span> <span class="n">Python</span> <span class="n">code</span>
+    <span class="p">:</span><span class="n">linenos</span><span class="p">:</span>
+    <span class="p">:</span><span class="n">emphasize</span><span class="o">-</span><span class="n">lines</span><span class="p">:</span> <span class="mi">2</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi Everyone&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are multiple options supported by <code class="docutils literal notranslate"><span class="pre">code-block</span></code> and below are the description of the same:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">caption</span></code> : Title of the code block</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linenos</span></code> : To add line numbers to code examples</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emphasize-lines</span></code> : To highlight certain lines in the code snippet specified</p></li>
+</ul>
+</section>
+<section id="equation-editor">
+<h4>Equation editor<a class="headerlink" href="#equation-editor" title="Permalink to this headline"></a></h4>
+<p>Equations can be written in latex format within math tag <code class="docutils literal notranslate"><span class="pre">:math:</span></code>. Use <a class="reference external" href="https://latex.codecogs.com/eqneditor/editor.php">this link</a> to generate equation in latex format.</p>
+<figure class="align-center" id="id8">
+<img alt="images/doc_guide/math.png" class="with-border" src="images/doc_guide/math.png" />
+<figcaption>
+<p><span class="caption-number">Figure 11 </span><span class="caption-text">Syntax to write math equations using reStructuredText (reST)</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_guide/faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="Production scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tiger Analytics.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
