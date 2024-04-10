@@ -768,6 +768,20 @@ def setup_ci_env(c, platform=PLATFORM, force=False):
         c.run(f"""python -m pip install -e "{HERE}" """)
 
 
+@task
+def complexity_score(c):
+    """
+    Calculate the complexity score for the codebase using Radon.
+    """
+    print("Calculating complexity score using Radon...")
+    env_name = _get_env_name(DEV_ENV)
+    with py_env(c, env_name):
+        # This runs flake8, flake8-black, flake8-isort, flake8-bandit,
+        # flake8-docstring
+        result = c.run("radon cc -s -a .", pty=True)
+        print(result.stdout)
+
+
 _create_task_collection(
     "dev",
     setup_env,
@@ -780,6 +794,7 @@ _create_task_collection(
     setup_info,
     _build_docker_image,
     setup_ci_env,
+    complexity_score
 )
 
 
